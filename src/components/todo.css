@@ -1,0 +1,173 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #ecf4f9; /* Light blue background color */
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin-top: 1px; */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #3498db;
+    color: #fff;
+  }
+
+  tr:hover {
+    background-color: #f2f2f2;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .edit-btn, .delete-btn {
+    padding: 8px 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .edit-btn {
+    background-color: #2ecc71;
+    color: #fff;
+    transition: background-color 0.3s;
+    margin-right: 5px;
+  }
+
+  .edit-btn:hover {
+    background-color: #27ae60;
+  }
+
+  .delete-btn {
+    background-color: #e74c3c;
+    color: #fff;
+    transition: background-color 0.3s;
+  }
+
+  .delete-btn:hover {
+    background-color: #c0392b;
+  }
+
+  .add-btn {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    /* margin-bottom: 20px; */
+    transition: background-color 0.3s;
+    width: 211px;
+  }
+
+  .add-btn:hover {
+    background-color: #2980b9;
+  }
+
+  .search-container {
+    display: flex;
+    justify-content: flex-end;
+    /* align-items: center; */
+    margin-bottom: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+
+  }
+
+
+  .modal {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close {
+    position: relative;
+    top: -11px;
+    right: -148px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #3498db;
+  }
+  
+  .modal-label {
+    color: #3498db;
+    font-size: 14px;
+    margin-bottom: 4px;
+    display: block;
+    text-align: left;
+  }
+  
+  .modal-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .modal-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .modal-button:hover {
+    background-color: #2980b9;
+  }
