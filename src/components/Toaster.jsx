@@ -1,17 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { showToaster } from '../features/todo/todoSLice';
 import { useDispatch } from 'react-redux';
 
-function Toaster() {
+function Toaster({content, setErrorToast}) {
     const dispatch = useDispatch()
 
-    setTimeout(function () {
-        dispatch(showToaster())
-    }, 2000);
 
+useEffect(() => {
+    setTimeout(function () {
+        dispatch(showToaster());
+    }, 2000);
+},[])
+    
     return (
-        <div className="toaster" id="successToaster">
-            Operation successful!
+        <div className={ content ? "toaster error" :"toaster"} id="successToaster">
+            {content ? content :"Operation successful!" }
         </div>
     )
 }

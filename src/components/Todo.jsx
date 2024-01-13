@@ -53,10 +53,10 @@ function Todo() {
         <tbody>
           {todos.length > 0 ? todos?.map((items, index) => <>
             <tr id={items.id}>
-              <td>{items.name}</td>
-              <td>{items.email}</td>
-              <td>{items.address}</td>
-              <td>{items.phoneNumber}</td>
+              <td>{items.name ? items.name : "-"}</td>
+              <td>{items.email ? items.email : "-"}</td>
+              <td>{items.address ? items.address : "-"}</td>
+              <td>{items.phoneNumber ? items.phoneNumber : "-"}</td>
               <td className="action-buttons">
                 <span className="edit-btn"
                   onClick={() => {

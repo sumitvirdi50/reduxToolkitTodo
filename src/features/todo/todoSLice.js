@@ -6,7 +6,7 @@ const initialState = {
   modal: false,
   loader:false,
   deleteModal:false,
-  toaster:false
+  toaster:false,
 }
 
 export const getUser = createAsyncThunk("getUser",async (data,{rejectWithValue}) => {
@@ -63,7 +63,6 @@ export const deleteUser = createAsyncThunk("deleteUser",async (data,{rejectWithV
 );
 
 export const updateUser = createAsyncThunk("updateUser",async (data,{rejectWithValue}) => {
-  console.log("datadatadatadata",data);
 
   const response = await fetch(`https://65a035da600f49256fafb619.mockapi.io/api/user/users/${data.id}`,{
     method:"PUT",
@@ -86,23 +85,10 @@ export const todoSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
-    removeTodo: (state, action) => {
-      state.todos = state.todos.filter((item) => item.id !== action.payload);
-    },
-    updateTodo: (state, action) => {
-      const { id, newText } = action.payload;
-      const todoToUpdate = state.todos.find((item) => item.id === id);
-      console.log("todoToUpdate", todoToUpdate);
-      if (todoToUpdate) {
-        todoToUpdate.text = newText;
-      }
-    },
     showModal: (state, action) => {
-      console.log("statestate", state);
       state.modal = !state.modal
     },
     showDeleteModal: (state, action) => {
-      console.log("delete", state);
       state.deleteModal = !state.deleteModal
     },
     showLoader:(state) => {
@@ -129,7 +115,7 @@ export const todoSlice = createSlice({
       .addCase(createUser.fulfilled, (state, action) => {
         state.loader=false
         state.modal=false
-        console.log("statestate",action);
+        state.toaster=true
         state.todos.push(action.payload);
       })
       .addCase(createUser.rejected, (state) => {});
@@ -154,10 +140,8 @@ export const todoSlice = createSlice({
         state.loader=false
         state.modal=false
         state.toaster=true
-        console.log("actionaction",action);
         const { id, name, email, phoneNumber, address } = action.payload;
       const todoToUpdate = state.todos.find((item) => item.id === id);
-      console.log("todoToUpdate", todoToUpdate);
       if (todoToUpdate) {
         todoToUpdate.name = name;
         todoToUpdate.email = email;
